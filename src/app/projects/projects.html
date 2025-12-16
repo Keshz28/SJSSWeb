@@ -1,0 +1,123 @@
+<nav class="navbar">
+ <div class="logo">
+  <a routerLink="/" class="logo-link">
+    <img src="/assets/Images/sjss_logo.png" alt="SJ Sunrise Services Logo">
+
+    <img src="/assets/Images/sinarjasa_logo.png" alt="Sinar Jasa Trading Logo">
+  </a>
+</div>
+  <div class="nav-links">
+    <a routerLink="/">HOME</a>
+    <a routerLink="/services">SERVICES</a>
+    <a routerLink="/projects" class="active">PROJECTS</a>
+    <a routerLink="/about">ABOUT US</a>
+    <a routerLink="/contact">CONTACT</a>
+
+    <a href="https://wa.me/60193777755" target="_blank" class="btn-call">CALL NOW</a>
+  </div>
+</nav>
+
+<header class="projects-header">
+  <h4>Our Projects</h4>
+  <h1>VISIT OUR PROJECTS</h1>
+  <p>Explore our portfolio of completed projects showcasing our expertise and craftsmanship in residential remodeling and construction.</p>
+</header>
+
+<section class="projects-grid">
+  <div class="project-card" *ngFor="let item of projectList">
+    <img [src]="item.thumb" alt="{{ item.title }}" class="main-img">
+
+    <div class="card-footer">
+      <h3>{{ item.title }}</h3>
+      <button class="btn-plus" (click)="openModal(item)">+</button>
+    </div>
+  </div>
+</section>
+
+<div class="modal-backdrop" *ngIf="selectedProject" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+
+    <span class="close-btn" (click)="closeModal()">&times;</span>
+
+    <div class="media-container">
+
+      <button class="nav-arrow left" (click)="prevSlide()">&#10094;</button>
+
+      <img *ngIf="selectedProject.gallery[currentSlideIndex].type === 'image'"
+           [src]="selectedProject.gallery[currentSlideIndex].url"
+           class="modal-media">
+
+      <video *ngIf="selectedProject.gallery[currentSlideIndex].type === 'video'"
+             [src]="selectedProject.gallery[currentSlideIndex].url"
+             controls autoplay class="modal-media">
+        Your browser does not support the video tag.
+      </video>
+
+      <button class="nav-arrow right" (click)="nextSlide()">&#10095;</button>
+
+    </div>
+
+    <div class="slide-counter">
+      {{ currentSlideIndex + 1 }} / {{ selectedProject.gallery.length }}
+    </div>
+
+    <div class="modal-details">
+      <h2>{{ selectedProject.title }}</h2>
+      <p>{{ selectedProject.description }}</p>
+      <button class="btn-quote">GET QUOTE</button>
+    </div>
+
+  </div>
+</div>
+
+<footer id="contact" class="footer-section">
+  <div class="footer-container">
+
+    <div class="footer-col contact-info">
+      <h2>Contact Us</h2>
+
+      <div class="info-item">
+        <span class="icon">📍</span>
+        <p>No.37, Jalan Inai 1, Sek.BB3, Bandar Bukit Beruntung, Rawang 48300, Selangor</p>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">✉️</span>
+        <p>sjsunriseservices@gmail.com</p>
+      </div>
+
+      <div class="info-item">
+        <span class="icon">📱</span>
+        <a href="https://wa.me/60193777755" target="_blank" class="footer-link">
+          +60 19-377 7755
+        </a>
+      </div>
+
+      <div class="socials">
+        <span class="icon">🎵</span>
+        <a href="https://www.tiktok.com/@sai_surase" target="_blank" class="footer-link">
+          Follow us on TikTok
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-col right-col">
+      <div class="footer-nav-links">
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About Us</a>
+        <a routerLink="/services">Services</a>
+        <a routerLink="/projects">Projects</a>
+        <a routerLink="/contact">Contact</a>
+      </div>
+
+      <a href="https://wa.me/60193777755" target="_blank" class="btn-footer-rect">
+        CALL NOW
+      </a>
+    </div>
+
+  </div>
+
+  <div class="copyright">
+    © 2035 by SJ Sunrise Services. Powered and secured.
+  </div>
+</footer>

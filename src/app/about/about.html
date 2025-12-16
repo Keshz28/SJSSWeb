@@ -1,0 +1,99 @@
+<nav class="navbar">
+  <div class="logo">
+    <a routerLink="/" class="logo-link">
+      <img src="/assets/Images/sjss_logo.png" alt="SJ Sunrise Services Logo">
+      <img src="/assets/Images/sinarjasa_logo.png" alt="Sinar Jasa Trading Logo">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a routerLink="/">HOME</a>
+    <a routerLink="/services">SERVICES</a>
+    <a routerLink="/projects">PROJECTS</a>
+    <a routerLink="/about" class="active">ABOUT US</a>
+    <a routerLink="/contact">CONTACT</a>
+
+    <a href="https://wa.me/60193777755" target="_blank" class="btn-call">CALL NOW</a>
+  </div>
+</nav>
+
+<header class="about-header">
+  <h4>Who We Are</h4>
+  <h1>OUR QUALIFICATIONS</h1>
+  <p>We are a fully registered and compliant construction company in Malaysia. Select a company below to view official certifications.</p>
+</header>
+
+<div class="company-tabs">
+  <button
+    class="tab-btn"
+    [class.active]="activeTab === 'SJ'"
+    (click)="switchTab('SJ')">
+    SJ SUNRISE SERVICES
+  </button>
+
+  <button
+    class="tab-btn"
+    [class.active]="activeTab === 'Sinar'"
+    (click)="switchTab('Sinar')">
+    SINAR JASA TRADING
+  </button>
+</div>
+
+<section class="about-grid">
+  <div class="cert-card" *ngFor="let item of currentList" (click)="openModal(item)">
+    <div class="image-wrapper">
+      <img [src]="item.thumb" alt="{{ item.title }}">
+    </div>
+    <div class="card-text">
+      <h3>{{ item.title }}</h3>
+      <span class="view-btn">VIEW DOCUMENT</span>
+    </div>
+  </div>
+</section>
+
+<div class="modal-backdrop" *ngIf="selectedCert" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+
+    <span class="close-btn" (click)="closeModal()">&times;</span>
+
+    <div class="media-container">
+      <button class="nav-arrow left" (click)="prevSlide()">&#10094;</button>
+
+      <img [src]="selectedCert.gallery[currentSlideIndex].url" class="modal-media">
+
+      <button class="nav-arrow right" (click)="nextSlide()">&#10095;</button>
+    </div>
+
+    <div class="slide-counter">
+      Page {{ currentSlideIndex + 1 }} of {{ selectedCert.gallery.length }}
+    </div>
+
+    <div class="modal-details">
+      <h2>{{ selectedCert.title }}</h2>
+      <p>{{ selectedCert.description }}</p>
+    </div>
+
+  </div>
+</div>
+
+<footer id="contact" class="footer-section">
+  <div class="footer-container">
+    <div class="footer-col contact-info">
+      <h2>Contact Us</h2>
+      <div class="info-item"><span class="icon">📍</span><p>No.37, Jalan Inai 1, Sek.BB3, Bandar Bukit Beruntung, Rawang 48300, Selangor</p></div>
+      <div class="info-item"><span class="icon">✉️</span><p>sjsunriseservices@gmail.com</p></div>
+      <div class="info-item"><span class="icon">📱</span><a href="https://wa.me/60193777755" target="_blank" class="footer-link">+60 19-377 7755</a></div>
+      <div class="socials"><span class="icon">🎵</span><a href="" target="_blank" class="footer-link">Follow us on TikTok</a></div>
+    </div>
+    <div class="footer-col right-col">
+      <div class="footer-nav-links">
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About Us</a>
+        <a routerLink="/services">Services</a>
+        <a routerLink="/projects">Projects</a>
+        <a routerLink="/contact">Contact</a>
+      </div>
+      <a href="https://wa.me/60193777755" target="_blank" class="btn-footer-rect">CALL NOW</a>
+    </div>
+  </div>
+  <div class="copyright">© 2035 by SJ Sunrise Services. Powered and secured.</div>
+</footer>

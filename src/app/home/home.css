@@ -1,0 +1,293 @@
+/* GLOBAL RESET & FONTS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* We can change this later */
+}
+
+/* --- NAVBAR --- */
+.navbar {
+  position: absolute; /* Overlays the hero image */
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background: transparent; /* See-through */
+  color: white;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* This targets the clickable link wrapper */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Adds space between the two logos */
+}
+
+/* This targets BOTH logo images */
+.logo img {
+  height: 60px; /* Adjust height as needed */
+  width: auto;
+  cursor: pointer;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.btn-call {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 20px;
+  cursor: pointer;
+  text-transform: uppercase;
+
+  /* ADD THESE TWO LINES: */
+  text-decoration: none;  /* Removes the underline */
+  display: inline-block;  /* Ensures padding works correctly */
+  font-size: 0.9rem;      /* Matches other text size */
+}
+
+/* --- HERO SECTION --- */
+/* --- HERO SECTION --- */
+.hero-section {
+  height: 100vh;
+  /* Ensure this points to your real image path */
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/assets/Images/Reno.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content h1 {
+  font-size: 3rem; /* Big Company Name */
+  font-weight: 700;
+  margin: 0; /* Remove gap so they sit closer */
+  line-height: 1.2;
+  letter-spacing: 2px;
+}
+
+.jv-text {
+  font-size: 1.5rem;
+  color: #b08d55; /* Gold Color for JV */
+  margin: 10px 0;
+  font-weight: normal;
+  letter-spacing: 5px; /* Spaced out style */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 20px;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Mobile Adjustment so text fits on phones */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2rem; }
+  .jv-text { font-size: 1.2rem; }
+}
+
+/* --- SPLIT SECTIONS (Used for Services & About) --- */
+.split-container {
+  display: flex;
+  min-height: 500px;
+}
+
+.image-side, .text-side {
+  flex: 1; /* Both take 50% width */
+}
+
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.dark-bg {
+  background-color: #1f1f1f; /* Dark Grey */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+}
+
+.dark-bg h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.dark-bg ul {
+  list-style: none;
+  margin-bottom: 40px;
+}
+
+.dark-bg ul li {
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.dark-bg ul li::before {
+  content: "•";
+  color: white;
+  display: inline-block;
+  width: 1em;
+}
+
+.btn-gold {
+  background-color: #b08d55; /* Goldish Brown */
+  border: none;
+  color: black;
+  padding: 15px 40px;
+  width: fit-content;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- FEATURES GRID (Icons) --- */
+.features-grid {
+  display: flex;
+  background-color: #1f1f1f;
+  border-top: 1px solid #333;
+  padding: 50px 0;
+}
+
+.feature-item {
+  flex: 1;
+  text-align: center;
+  color: white;
+  border-right: 1px solid #333;
+}
+
+.feature-item:last-child {
+  border-right: none;
+}
+
+.feature-item .icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: #b08d55; /* Gold Icon */
+}
+
+/* --- FOOTER --- */
+/* --- FOOTER --- */
+.footer-section {
+  background-color: #1a1a1a;
+  color: #a0a0a0;
+  padding: 60px 50px 20px 50px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align left and right columns vertically */
+  border-bottom: 1px solid #333;
+  padding-bottom: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-col {
+  /* No flex: 1 here, so they take up only needed space */
+}
+
+.footer-col h2 {
+  color: #b08d55; /* Gold Header */
+  margin-bottom: 25px;
+  font-size: 1.2rem;
+}
+
+/* --- Left Column Styles --- */
+.info-item, .socials {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.info-item .icon, .socials .icon {
+  font-size: 1.2rem;
+  margin-right: 15px;
+  color: #b08d55; /* Gold icons */
+}
+
+.footer-link {
+  color: #a0a0a0;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-link:hover {
+  color: #b08d55;
+}
+
+/* --- Right Column Styles --- */
+.right-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align items to the right side */
+  gap: 20px;
+}
+
+/* Horizontal Links */
+.footer-nav-links {
+  display: flex;
+  gap: 25px; /* Space between links */
+}
+
+.footer-nav-links a {
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-nav-links a:hover {
+  color: #b08d55;
+}
+
+/* Rectangular Button */
+.btn-footer-rect {
+  display: inline-block;
+  background-color: transparent;
+  border: 1px solid #b08d55; /* Gold border */
+  color: #b08d55;
+  padding: 10px 30px; /* Rectangular padding */
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.btn-footer-rect:hover {
+  background-color: #b08d55;
+  color: #1a1a1a; /* Black text on hover */
+}
+
+/* Copyright */
+.copyright {
+  text-align: left;
+  font-size: 0.8rem;
+  color: #777;
+}
